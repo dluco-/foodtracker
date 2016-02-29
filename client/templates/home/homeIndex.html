@@ -1,0 +1,38 @@
+<template name="homeIndex">
+  <h1 class="ui header">Food tracker</h1>
+
+  {{>addProduct}}
+  {{>listProducts}}
+
+</template>
+
+<template name="addProduct">
+  <form class="ui form add-product">
+    <div class="field">
+      <label>Produkt</label>
+      <input name="product" placeholder="Produkt" type="text">
+    </div>
+    <div class="field">
+      <label>Utgångsdatum</label>
+      <input name="expirationDate" placeholder="Utgångsdatum" type="text">
+    </div>
+    <button class="ui fluid primary button" type="submit">Lägg till</button>
+  </form>
+  <div class="ui divider"></div>
+</template>
+
+<template name="listProducts">
+  <div class="ui middle aligned divided list">
+    {{#each products}}
+      <div class="item">
+        <div class="right floated content">
+          <i class="remove red link icon"></i>
+        </div>
+        <div class="content">
+          <div class="header">{{name}}</div>
+          <div class="description">{{expirationDate}}</div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</template>
